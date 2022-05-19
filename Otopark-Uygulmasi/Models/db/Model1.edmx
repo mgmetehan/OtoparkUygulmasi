@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_otoparkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="araclar">
+          <Key>
+            <PropertyRef Name="aracId" />
+          </Key>
+          <Property Name="aracId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aracPlaka" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="aracMarka" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="aracRenk" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="kisiId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="giris">
+          <Key>
+            <PropertyRef Name="kullaniciId" />
+          </Key>
+          <Property Name="kullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciAd" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="kullaniciSifre" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kisiler">
+          <Key>
+            <PropertyRef Name="kisiId" />
+          </Key>
+          <Property Name="kisiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kisiTc" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="kisiAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="kisiSoyad" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="kisiTelNo" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="180" Nullable="false" />
+        </EntityType>
+        <EntityType Name="otoparklar">
+          <Key>
+            <PropertyRef Name="otoparkId" />
+          </Key>
+          <Property Name="otoparkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="otoparkAd" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="otoparkSehir" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="parkYeri">
+          <Key>
+            <PropertyRef Name="parkId" />
+          </Key>
+          <Property Name="parkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parkYeri" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="aracId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_araclar_kisiler">
+          <End Role="kisiler" Type="Self.kisiler" Multiplicity="1" />
+          <End Role="araclar" Type="Self.araclar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kisiler">
+              <PropertyRef Name="kisiId" />
+            </Principal>
+            <Dependent Role="araclar">
+              <PropertyRef Name="kisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_parkYeri_araclar">
+          <End Role="araclar" Type="Self.araclar" Multiplicity="1" />
+          <End Role="parkYeri" Type="Self.parkYeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="araclar">
+              <PropertyRef Name="aracId" />
+            </Principal>
+            <Dependent Role="parkYeri">
+              <PropertyRef Name="aracId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_otoparkModelStoreContainer">
+          <EntitySet Name="araclar" EntityType="Self.araclar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="giris" EntityType="Self.giris" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kisiler" EntityType="Self.kisiler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="otoparklar" EntityType="Self.otoparklar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="parkYeri" EntityType="Self.parkYeri" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_araclar_kisiler" Association="Self.FK_araclar_kisiler">
+            <End Role="kisiler" EntitySet="kisiler" />
+            <End Role="araclar" EntitySet="araclar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_parkYeri_araclar" Association="Self.FK_parkYeri_araclar">
+            <End Role="araclar" EntitySet="araclar" />
+            <End Role="parkYeri" EntitySet="parkYeri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_otoparkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="araclar">
+          <Key>
+            <PropertyRef Name="aracId" />
+          </Key>
+          <Property Name="aracId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="aracPlaka" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aracMarka" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aracRenk" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kisiId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="kisiler" Relationship="Self.FK_araclar_kisiler" FromRole="araclar" ToRole="kisiler" />
+          <NavigationProperty Name="parkYeri" Relationship="Self.FK_parkYeri_araclar" FromRole="araclar" ToRole="parkYeri" />
+        </EntityType>
+        <EntityType Name="giris">
+          <Key>
+            <PropertyRef Name="kullaniciId" />
+          </Key>
+          <Property Name="kullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciAd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kullaniciSifre" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kisiler">
+          <Key>
+            <PropertyRef Name="kisiId" />
+          </Key>
+          <Property Name="kisiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kisiTc" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kisiAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kisiSoyad" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kisiTelNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="180" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="araclar" Relationship="Self.FK_araclar_kisiler" FromRole="kisiler" ToRole="araclar" />
+        </EntityType>
+        <EntityType Name="otoparklar">
+          <Key>
+            <PropertyRef Name="otoparkId" />
+          </Key>
+          <Property Name="otoparkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="otoparkAd" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="otoparkSehir" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="parkYeri">
+          <Key>
+            <PropertyRef Name="parkId" />
+          </Key>
+          <Property Name="parkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parkYeri1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="aracId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="araclar" Relationship="Self.FK_parkYeri_araclar" FromRole="parkYeri" ToRole="araclar" />
+        </EntityType>
+        <Association Name="FK_araclar_kisiler">
+          <End Role="kisiler" Type="Self.kisiler" Multiplicity="1" />
+          <End Role="araclar" Type="Self.araclar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kisiler">
+              <PropertyRef Name="kisiId" />
+            </Principal>
+            <Dependent Role="araclar">
+              <PropertyRef Name="kisiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_parkYeri_araclar">
+          <End Role="araclar" Type="Self.araclar" Multiplicity="1" />
+          <End Role="parkYeri" Type="Self.parkYeri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="araclar">
+              <PropertyRef Name="aracId" />
+            </Principal>
+            <Dependent Role="parkYeri">
+              <PropertyRef Name="aracId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_otoparkEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="araclar" EntityType="Self.araclar" />
+          <EntitySet Name="giris" EntityType="Self.giris" />
+          <EntitySet Name="kisiler" EntityType="Self.kisiler" />
+          <EntitySet Name="otoparklar" EntityType="Self.otoparklar" />
+          <EntitySet Name="parkYeri" EntityType="Self.parkYeri" />
+          <AssociationSet Name="FK_araclar_kisiler" Association="Self.FK_araclar_kisiler">
+            <End Role="kisiler" EntitySet="kisiler" />
+            <End Role="araclar" EntitySet="araclar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_parkYeri_araclar" Association="Self.FK_parkYeri_araclar">
+            <End Role="araclar" EntitySet="araclar" />
+            <End Role="parkYeri" EntitySet="parkYeri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_otoparkModelStoreContainer" CdmEntityContainer="db_otoparkEntities">
+          <EntitySetMapping Name="araclar">
+            <EntityTypeMapping TypeName="db_otoparkModel.araclar">
+              <MappingFragment StoreEntitySet="araclar">
+                <ScalarProperty Name="aracId" ColumnName="aracId" />
+                <ScalarProperty Name="aracPlaka" ColumnName="aracPlaka" />
+                <ScalarProperty Name="aracMarka" ColumnName="aracMarka" />
+                <ScalarProperty Name="aracRenk" ColumnName="aracRenk" />
+                <ScalarProperty Name="kisiId" ColumnName="kisiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="giris">
+            <EntityTypeMapping TypeName="db_otoparkModel.giris">
+              <MappingFragment StoreEntitySet="giris">
+                <ScalarProperty Name="kullaniciId" ColumnName="kullaniciId" />
+                <ScalarProperty Name="kullaniciAd" ColumnName="kullaniciAd" />
+                <ScalarProperty Name="kullaniciSifre" ColumnName="kullaniciSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kisiler">
+            <EntityTypeMapping TypeName="db_otoparkModel.kisiler">
+              <MappingFragment StoreEntitySet="kisiler">
+                <ScalarProperty Name="kisiId" ColumnName="kisiId" />
+                <ScalarProperty Name="kisiTc" ColumnName="kisiTc" />
+                <ScalarProperty Name="kisiAd" ColumnName="kisiAd" />
+                <ScalarProperty Name="kisiSoyad" ColumnName="kisiSoyad" />
+                <ScalarProperty Name="kisiTelNo" ColumnName="kisiTelNo" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="otoparklar">
+            <EntityTypeMapping TypeName="db_otoparkModel.otoparklar">
+              <MappingFragment StoreEntitySet="otoparklar">
+                <ScalarProperty Name="otoparkId" ColumnName="otoparkId" />
+                <ScalarProperty Name="otoparkAd" ColumnName="otoparkAd" />
+                <ScalarProperty Name="otoparkSehir" ColumnName="otoparkSehir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parkYeri">
+            <EntityTypeMapping TypeName="db_otoparkModel.parkYeri">
+              <MappingFragment StoreEntitySet="parkYeri">
+                <ScalarProperty Name="parkId" ColumnName="parkId" />
+                <ScalarProperty Name="parkYeri1" ColumnName="parkYeri" />
+                <ScalarProperty Name="aracId" ColumnName="aracId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

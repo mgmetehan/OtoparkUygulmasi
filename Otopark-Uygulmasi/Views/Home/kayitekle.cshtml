@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "kayitekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Section 1 Bitiş-->
+<div class="container">
+    <div class="section">
+
+        <div class="row">
+            <div class="col s12 center">
+                <h3><i class="mdi-content-send brown-text"></i></h3>
+                <h4>APARTMAN SAKİNİ KAYIT</h4>
+                <p class="center light">Apartman Sakinlerinin, Araçlarını ve Kendilerini Kayıt Edebildiğiniz Konum</p>
+                <hr class="hr">
+                <div class="row">
+                    <form class="col s12" method="post">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input placeholder="İsim" name="ad" type="text" class="validate">
+                                <label for="ad" class="active">İsim Soyisim</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="soyad" type="text" class="validate">
+                                <label for="soyad">Soyisim</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">people_outline</i>
+                                <input name="tc_kimlik" type="number" class="validate">
+                                <label for="tc_kimlik">Tc Kimlik</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="cep_telefonu" type="number" class="validate">
+                                <label for="cep_telefonu">Telefon Numarası</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">location_on</i>
+                                <input placeholder="Adres" name="Adres" type="text" class="validate">
+                                <label for="plaka_no" class="active">Araç Bilgileri</label>
+                            </div>
+                        </div>
+                        <div class="col m12 s12">
+                            <button type="submit" class="waves-effect waves-light btn btn-small red lighten-2"><i class="material-icons left">chevron_right</i><i class="material-icons right">chevron_left</i>Kayıt Ol</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================End Services_area =================-->
+<!-- Section 1 Bitiş-->

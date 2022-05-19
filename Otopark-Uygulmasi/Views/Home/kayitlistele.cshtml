@@ -1,0 +1,43 @@
+﻿@using Otopark_Uygulmasi.Models.db
+@model List<kisiler>
+@{
+    ViewBag.Title = "kayitlistele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col m12 s12">
+            <h4>Otopark Araç Çıkışı</h4>
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Tc Kimlik</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Cep Telefonu</th>
+                        <th>Adres (Daire No)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.kisiId -</td>
+                            <td>@item.kisiTc</td>
+                            <td>@item.kisiAd</td>
+                            <td>@item.kisiSoyad</td>
+                            <td>@item.kisiTelNo</td>
+                            <td>@item.Adres</td>
+                            <td><a href="/Home/KisiGetir/@item.kisiId" class="waves-effect waves-light btn">Güncelle</a></td>
+                            <td><a href="/Home/SIL/@item.kisiId" class="waves-effect waves-light btn red darken-2">Kişi Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
