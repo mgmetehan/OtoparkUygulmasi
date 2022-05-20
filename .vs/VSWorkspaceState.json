@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Otopark-Uygulmasi",
+    "\\Otopark-Uygulmasi\\Controllers",
+    "\\Otopark-Uygulmasi\\Models",
+    "\\Otopark-Uygulmasi\\Models\\db",
     "\\Otopark-Uygulmasi\\Views",
-    "\\Otopark-Uygulmasi\\Views\\Home",
     "\\Otopark-Uygulmasi\\Views\\Shared"
   ],
-  "SelectedNode": "\\Otopark-Uygulmasi\\Views\\Shared\\_Layout.cshtml",
+  "SelectedNode": "\\Otopark-Uygulmasi\\Models\\db",
   "PreviewInSolutionExplorer": false
 }

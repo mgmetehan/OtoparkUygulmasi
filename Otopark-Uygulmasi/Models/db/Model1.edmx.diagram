@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8c431e91322b41b1b616b02ea0b3f9cb" Name="Diagram1">
+      <Diagram DiagramId="ab9a62c35e364a85929f941bc52f4471" Name="Diagram1">
         <EntityTypeShape EntityType="db_otoparkModel.araclar" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="db_otoparkModel.giris" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_otoparkModel.kisiler" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
