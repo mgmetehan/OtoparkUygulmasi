@@ -1,0 +1,50 @@
+﻿@model Otopark_Uygulmasi.Models.db.kisiler
+@{
+    ViewBag.Title = "KisiGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col m12">
+            <h4 class="center">APARTMAN SAKİNİ GÜNCELLE</h4>
+            <p class="center light">Verilerinizi Güncelleyebilirsiniz.</p>
+            <hr />
+            @using (Html.BeginForm("KisiyiGuncelle", "Home", FormMethod.Post))
+            {
+                @Html.TextBoxFor(m => m.kisiId, new { @class = "validate hide" })
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        @Html.TextBoxFor(m => m.kisiTc, new { @class = "validate" })
+                        <label for="Tc_Kimlik">Tc Kimlik</label>
+                    </div>
+                    <div class="input-field col s6">
+                        @Html.TextBoxFor(m => m.kisiAd, new { @class = "validate" })
+                        <label for="soyad">İsim</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        @Html.TextBoxFor(m => m.kisiSoyad, new { @class = "validate" })
+                        <label for="Tc_Kimlik">Soyisim</label>
+                    </div>
+                    <div class="input-field col s6">
+                        @Html.TextBoxFor(m => m.kisiTelNo, new { @class = "validate" })
+                        <label for="soyad">Cep Telefonu</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        @Html.TextBoxFor(m => m.Adres, new { @class = "validate" })
+                        <label for="Tc_Kimlik">Adres</label>
+                    </div>
+                </div>
+                <div class="col center m12 s12">
+                    <button class="waves-effect waves-light btn btn-small red lighten-2"><i class="material-icons left">chevron_right</i><i class="material-icons right">chevron_left</i>Güncelle</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -19,13 +19,11 @@
                     <a href="#!" class="brand-logo center"><img class="responsive-img width" src="~/Content/img/logo.png"></a>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="left hide-on-med-and-down">
-                        <li class="active"><a href="~/Home/Index">Anasayfa</a></li>
-                        <li><a href="~/Home/kayitekle">Kişi Kaydı</a></li>
+                        <li class="active"><a href="/Home/Index">Anasayfa</a></li>
+                        <li><a href="/Home/kayit">Kişi Kaydı</a></li>
                         <li><a href="/Arac/AracGoster">Araç Kayıt</a></li>
                     </ul>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="~/Home/kayitlistele">Kişileri Listele</a></li>
-
                         <li><a href="/Arac/AracCikis">Araç Bilgileri</a></li>
                         <li><a href="/Home/otoparkcikis">Kişiler</a></li>
                         <li><a href="/Durum/otoparkdurumu">Otopark Durumu</a></li>
@@ -43,16 +41,9 @@
     @*Header*@
 
     @RenderBody()
-    <footer class="page-footer footer-back">
-        <div class="footer-copyright">
-            <div class="container">
-                © @DateTime.Now.Year 
-            </div>
-        </div>
-    </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    @System.Web.Optimization.Scripts.Render("~/bundles/materialize")
     @RenderSection("scripts", required: false)
 </body>
 </html>

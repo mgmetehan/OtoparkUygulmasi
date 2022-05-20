@@ -14,28 +14,45 @@ namespace Otopark_Uygulmasi.Controllers
         {
             return View();
         }
-        public ActionResult kayitekle()
+        [HttpGet]
+        public ActionResult kayit()
         {
             return View();
         }
-        public ActionResult kayitlistele()
+        [HttpPost]
+        public ActionResult kayit(kisiler P)
+        {
+            db.kisiler.Add(P);
+            db.SaveChanges();
+            return RedirectToAction("otoparkcikis");
+        }
+        public ActionResult otoparkcikis()
         {
             var liste = db.kisiler.ToList();
             return View(liste);
         }
-        
-        public ActionResult About()
+        public ActionResult SIL(int id)
         {
-            ViewBag.Message = "Your application description page.";
+            db.kisiler.Remove(db.kisiler.Find(id));
+            db.SaveChanges();
+            return RedirectToAction("otoparkcikis");
 
-            return View();
         }
-
-        public ActionResult Contact()
+        public ActionResult KisiGetir(int id)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var kisi = db.kisiler.Find(id);
+            return View("KisiGetir", kisi);
+        }
+        public ActionResult KisiyiGuncelle(kisiler P1)
+        {
+            var kisi = db.kisiler.Find(P1.kisiId);
+            kisi.kisiTc = P1.kisiTc;
+            kisi.kisiAd = P1.kisiAd;
+            kisi.kisiSoyad = P1.kisiSoyad;
+            kisi.kisiTelNo= P1.kisiTelNo;
+            kisi.Adres = P1.Adres;
+            db.SaveChanges();
+            return RedirectToAction("otoparkcikis");
         }
     }
 }
