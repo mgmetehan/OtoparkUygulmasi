@@ -162,6 +162,7 @@
     <Compile Include="Models\db\otoparklar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\db\OtoparklarBaglanti.cs" />
     <Compile Include="Models\db\parkYeri.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -238,6 +239,7 @@
     <Content Include="Views\Durum\otoparkdurumu.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\UserDashBoard.cshtml" />
+    <Content Include="Views\Home\Otopark.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

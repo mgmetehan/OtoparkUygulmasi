@@ -54,5 +54,17 @@ namespace Otopark_Uygulmasi.Controllers
             db.SaveChanges();
             return RedirectToAction("otoparkcikis");
         }
+        OtoparklarBaglanti model = new OtoparklarBaglanti();
+        public ActionResult Otopark()
+        {
+            List<otoparklar> otoparkList = db.otoparklar.OrderBy(f => f.otoparkAd).ToList();
+            model.OtoparkList = (from u in otoparkList
+                                 select new SelectListItem
+                                 {
+                                     Text = u.otoparkAd,
+                                     Value = u.otoparkId.ToString()
+                                 }).ToList();
+            return View(model);
+        }
     }
 }

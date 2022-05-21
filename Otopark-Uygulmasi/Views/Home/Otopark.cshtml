@@ -1,0 +1,15 @@
+﻿@model Otopark_Uygulmasi.Models.db.OtoparklarBaglanti
+@{
+    ViewBag.Title = "Otopark";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using(Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <div class="container">
+        <div class="from-group">
+            @Html.DropDownListFor(Model => Model.otoparkId, Model.OtoparkList, "Otopark Seçin", new { @class = "form-control" })
+        </div>
+    </div>
+}
+
