@@ -1,0 +1,49 @@
+﻿@model Otopark_Uygulmasi.Models.db.giris
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{<fieldset>
+
+        <legend>Kullanıcı Giriş Ekranı</legend>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.kullaniciAd)</td>
+                <td>@Html.TextBoxFor(a => a.kullaniciAd)</td>
+                <td>@Html.ValidationMessageFor(a => a.kullaniciAd)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.kullaniciSifre)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.kullaniciSifre)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.kullaniciSifre)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}

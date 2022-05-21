@@ -11,11 +11,15 @@ namespace Otopark_Uygulmasi.Models.db
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class giris
     {
         public int kullaniciId { get; set; }
+        [Required(ErrorMessage = "Kullanýcý bilgisi girilmelidir")]
         public string kullaniciAd { get; set; }
+        [Required(ErrorMessage = "Password girilmelidir")]
+        [DataType(DataType.Password)]
         public string kullaniciSifre { get; set; }
     }
 }
