@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Linq.Dynamic.Core;
 
 namespace Otopark_Uygulmasi.Controllers
 {
@@ -27,10 +28,32 @@ namespace Otopark_Uygulmasi.Controllers
             db.SaveChanges();
             return RedirectToAction("AracCikis");
         }
-        public ActionResult AracCikis()
+        public List<araclar> getAraclar(string search, string sort, string sortdir, out int totalRecord)
+        {
+            using (db_otoparkEntities db = new db_otoparkEntities())
+            {
+                var v = (from a in db.araclar
+
+                         where a.aracPlaka.Contains(search) ||
+                         a.aracMarka.Contains(search) ||
+                         a.aracRenk.Contains(search)
+
+                         select a
+                );
+
+                totalRecord = v.Count();
+                v = v.OrderBy(sort + " " + sortdir);
+                return v.ToList();
+            }
+        }
+        public ActionResult AracCikis(string sort = "AracPlaka", string sortdir = "asc",string search = "")
         {
             var listee = db.araclar.ToList();
-            return View(listee);
+            int totalRecord = 0;
+            var data = getAraclar(search, sort, sortdir, out totalRecord);
+            ViewBag.TotalRows = totalRecord;
+            ViewBag.search = search;
+            return View(data);
         }
         public ActionResult SIL(int id)
         {

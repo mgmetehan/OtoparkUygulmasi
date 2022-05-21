@@ -18,23 +18,23 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        @Html.TextBoxFor(m => m.aracPlaka, new { @class = "" })
-                        <label for="Tc_Kimlik">Plaka</label>
+                        @Html.TextBoxFor(m => m.aracPlaka, new { @placeholder = "Plaka", @class = "" })
+                        <label for="aracPlaka"></label>
                     </div>
                     <div class="input-field col s6">
-                        @Html.TextBoxFor(m => m.aracMarka, new { @class = "" })
-                        <label for="soyad">Marka</label>
+                        @Html.TextBoxFor(m => m.aracMarka, new { @placeholder = "Marka", @class = "" })
+                        <label for="aracMarka"></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        @Html.TextBoxFor(m => m.aracRenk, new { @class = "" })
-                        <label for="Tc_Kimlik">Renk</label>
+                        @Html.TextBoxFor(m => m.aracRenk, new { @placeholder = "Renk", @class = "" })
+                        <label for="aracRenk"></label>
                     </div>
                     <div class="input-field col s6">
-                        @Html.TextBoxFor(m => m.kisiId, new { @class = "" })
-                        <label for="soyad">Arac Sahibi (ID)</label>
+                        @Html.TextBoxFor(m => m.kisiId, new { @placeholder = "Arac Sahibi", @class = "" })
+                        <label for="kisiId"></label>
                     </div>
                 </div>
                 <div class="col center m12 s12">

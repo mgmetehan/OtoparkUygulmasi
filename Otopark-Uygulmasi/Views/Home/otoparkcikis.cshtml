@@ -6,66 +6,70 @@
     var ornekgrid = new WebGrid(source: Model, canPage: true, rowsPerPage: 2);
     ornekgrid.Pager(WebGridPagerModes.All);
 }
-<style type="text/css">
-    /*Burada grid için css ekleyeceğiz*/
-    .webgrid-table {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        font-size: 1.2em;
-        width: 100%;
-        display: table;
-        border-collapse: separate;
-        border: solid 1px #98BF21;
-        background-color: white;
-    }
+<!DOCTYPE html>
 
-        .webgrid-table td, th {
-            border: 1px solid #98BF21;
+<html>
+<body>
+    <style type="text/css">
+        /*Burada grid için css ekleyeceğiz*/
+        .webgrid-table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            width: 100%;
+            display: table;
+            border-collapse: separate;
+            border: solid 1px #98BF21;
+            background-color: white;
+        }
+
+            .webgrid-table td, th {
+                border: 1px solid #98BF21;
+                padding: 3px 7px 2px;
+            }
+
+        .webgrid-header {
+            background-color: #A7C942;
+            color: #FFFFFF;
+            padding-bottom: 4px;
+            padding-top: 5px;
+            text-align: left;
+        }
+
+        .webgrid-footer {
+        }
+
+        .webgrid-row-style {
             padding: 3px 7px 2px;
         }
 
-    .webgrid-header {
-        background-color: #A7C942;
-        color: #FFFFFF;
-        padding-bottom: 4px;
-        padding-top: 5px;
-        text-align: left;
-    }
+        .webgrid-alternating-row {
+            background-color: #EAF2D3;
+            padding: 3px 7px 2px;
+        }
+    </style>
 
-    .webgrid-footer {
-    }
+    <div id="content">
+        @ornekgrid.GetHtml(
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        rowStyle: "webgrid-row-style",
+        columns: ornekgrid.Columns(
+            ornekgrid.Column(columnName: "kisiId", header: "Id"),
+             ornekgrid.Column(columnName: "kisiTc", header: "Tc Kimlik"),
+            ornekgrid.Column(columnName: "kisiAd", header: "Ad"),
+            ornekgrid.Column(columnName: "kisiSoyad", header: "Soyad"),
+            ornekgrid.Column(columnName: "kisiTelNo", header: "Cep Telefonu"),
+            ornekgrid.Column(columnName: "Adres", header: "Albüm Numarası"),
+            ornekgrid.Column(columnName: "", header: "",
+            format:@<a href="/Home/KisiGetir/@item.kisiId" class="waves-effect waves-light btn">Güncelle</a>),
+            ornekgrid.Column(columnName: "", header: "",
+            format:@<a href="/Home/SIL/@item.kisiId" class="waves-effect waves-light btn red darken-2">Kişi Sil</a>)))
+    </div>
 
-    .webgrid-row-style {
-        padding: 3px 7px 2px;
-    }
-
-    .webgrid-alternating-row {
-        background-color: #EAF2D3;
-        padding: 3px 7px 2px;
-    }
-</style>
-
-<div id="content">
-    @ornekgrid.GetHtml(
-    tableStyle: "webgrid-table",
-    headerStyle: "webgrid-header",
-    footerStyle: "webgrid-footer",
-    alternatingRowStyle: "webgrid-alternating-row",
-    rowStyle: "webgrid-row-style",
-    columns: ornekgrid.Columns(
-        ornekgrid.Column(columnName: "kisiId", header: "Id"),
-         ornekgrid.Column(columnName: "kisiTc", header: "Tc Kimlik"),
-        ornekgrid.Column(columnName: "kisiAd", header: "Ad"),
-        ornekgrid.Column(columnName: "kisiSoyad", header: "Soyad"),
-        ornekgrid.Column(columnName: "kisiTelNo", header: "Cep Telefonu"),
-        ornekgrid.Column(columnName: "Adres", header: "Albüm Numarası"),
-        ornekgrid.Column(columnName: "", header: "",
-        format:@<a href="/Home/KisiGetir/@item.kisiId" class="waves-effect waves-light btn">Güncelle</a>),
-
-        ornekgrid.Column(columnName: "", header: "",
-        format:@<a href="/Home/SIL/@item.kisiId" class="waves-effect waves-light btn red darken-2">Kişi Sil</a>)))
-</div>
-
-
+</body>
+</html>
 
 
 

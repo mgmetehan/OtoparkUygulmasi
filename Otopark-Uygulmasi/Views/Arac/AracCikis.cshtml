@@ -1,42 +1,44 @@
-﻿@using Otopark_Uygulmasi.Models.db
-@model List<araclar>
+﻿@model List<Otopark_Uygulmasi.Models.db.araclar>
 @{
-    ViewBag.Title = "AracCikis";
+    ViewBag.Title = "otoparkcikis";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<div class="container">
-    <div class="row">
-        <div class="col m12 s12">
-            <h4>Otopark Araç Sil / Güncelle</h4>
-            <table class="highlight responsive-table">
-                <thead>
-                    <tr>
-                        <th>Aracın Numarası (ID)</th>
-                        <th>Plaka</th>
-                        <th>Aracın Markası</th>
-                        <th>Aracın Rengi</th>
-                        <th>Araç Sahibi (ID)</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.aracId -</td>
-                            <td>@item.aracPlaka</td>
-                            <td>@item.aracMarka</td>
-                            <td>@item.aracRenk</td>
-                            <td>@item.kisiId </td>
-                            <td><a href="/Arac/AracGetir/@item.aracId" class="waves-effect waves-light btn">Güncelle</a></td>
-                            <td><a href="/Arac/SIL/@item.aracId" class="waves-effect waves-light btn red darken-2">Araç Sil</a></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+    var ornekgrid = new WebGrid(source: Model, canPage: true, rowsPerPage: 100);
+    ornekgrid.Pager(WebGridPagerModes.All);
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    <h2>Otopark Araç Sil / Güncelle</h2>
+    <h3>Toplam Kayıt Sayısı: @ViewBag.TotalRows</h3>
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                @using (Html.BeginForm("AracCikis", "Arac", FormMethod.Get, new { @class = "navbar-form navbar - left" }))
+                {
+                    <div class="form-group d-inline" style="padding-left:10px;">
+                        <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="search" />
+                    </div>
+                    <button style="padding-left:10px;" type="submit" value="ARA" class="btn btn-success">Ara</button>
+                }
+            </div>
         </div>
+    <div>
+
+        @ornekgrid.Table(
+        tableStyle: "table table-responsive table-bordered",
+        columns: ornekgrid.Columns(
+        ornekgrid.Column(columnName: "aracId", header: "Araç Id"),
+        ornekgrid.Column(columnName: "aracPlaka", header: "Plaka"),
+        ornekgrid.Column(columnName: "aracMarka", header: "Aracın Markası"),
+        ornekgrid.Column(columnName: "aracRenk", header: "Aracın Rengi"),
+        ornekgrid.Column(columnName: "kisiId", header: "Araç Sahibi"),
+        ornekgrid.Column(columnName: "", header: "",
+        format:@<a href="/Arac/AracGetir/@item.aracId" class="waves-effect waves-light btn">Güncelle</a>),
+        ornekgrid.Column(columnName: "", header: "",
+        format:@<a href="/Arac/SIL/@item.aracId" class="waves-effect waves-light btn red darken-2">Araç Sil</a>)))
     </div>
-</div>
-<br />
-<br />
-<br />
+
+</body>
+</html>
