@@ -57,8 +57,8 @@ namespace Otopark_Uygulmasi.Controllers
         OtoparklarBaglanti model = new OtoparklarBaglanti();
         public ActionResult Otopark()
         {
-            List<otoparklar> otoparkList = db.otoparklar.OrderBy(f => f.otoparkAd).ToList();
-            model.OtoparkList = (from u in otoparkList
+            List<otoparklar> OtoparkList = db.otoparklar.OrderBy(f => f.otoparkAd).ToList();
+            model.OtoparkList = (from u in OtoparkList
                                  select new SelectListItem
                                  {
                                      Text = u.otoparkAd,

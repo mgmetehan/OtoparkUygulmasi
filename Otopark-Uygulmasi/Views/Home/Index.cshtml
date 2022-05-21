@@ -1,34 +1,27 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-<div class="container">
-    <div class="row">
-        <div class="col m12">
-            <img style="border-radius: 0px 0px 5px 5px;" class="responsive-img z-depth-2 " src="~/Content/img/a.png">
-        </div>
-    </div>
-</div>
-<section class="services_area align-content-center justify-content-center">
+
+<img style="border-radius: 0px 0px 5px 5px; padding-left:600px; " class="responsive-img d-inline" src="~/Content/img/a.png">
+<section class="services_area align-content-center justify-content-center d-inline">
     <div class="container">
-        <div class="row">
             <div class="col m4 s6">
                 <div class="services_item">
                     <h2>Otopark Kayıt</h2>
                     <a href="/Home/kayit" class="waves-effect waves-light btn">Kayıt</a>
                 </div>
             </div>
-        <div class="col m4 s6">
-            <div class="services_item">
-                <h2>Otoparktan Araç Çıkışı</h2>
-                <a href="/Arac/AracCikis" class="waves-effect waves-light btn">Otoparktan Araç Çıkışı</a>
+            <div class="col m4 s6">
+                <div class="services_item">
+                    <h2>Otoparktan Araç Çıkışı</h2>
+                    <a href="/Arac/AracCikis" class="waves-effect waves-light btn">Otoparktan Araç Çıkışı</a>
+                </div>
             </div>
+            <div class="col m4 s12">
+                <div class="services_item">
+                    <h2>Otopark Durumu</h2>
+                    <a href="/Durum/otoparkdurumu" class="waves-effect waves-light btn">Otopark Durumu</a>
+                </div>
         </div>
-        <div class="col m4 s12">
-            <div class="services_item">
-                <h2>Otopark Durumu</h2>
-                <a href="/Durum/otoparkdurumu" class="waves-effect waves-light btn">Otopark Durumu</a>
-            </div>
-        </div>
-    </div>
     </div>
 </section>
