@@ -14,6 +14,13 @@ namespace Otopark_Uygulmasi.Controllers
         {
             return View();
         }
+        public ActionResult About()
+        {
+            ViewBag.Message = HttpContext.Application["developer"];
+            HttpContext.Application.Remove("developer");
+            return View();
+
+        }
         [HttpGet]
         public ActionResult kayit()
         {

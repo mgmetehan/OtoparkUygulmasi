@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AracController.cs" />
+    <Compile Include="Controllers\CerezController.cs" />
     <Compile Include="Controllers\DurumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -242,6 +243,9 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\UserDashBoard.cshtml" />
     <Content Include="Views\Home\Otopark.cshtml" />
+    <Content Include="Views\Cerez\OnlineUyeSayisi.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Cerez\Olustur.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
