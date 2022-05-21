@@ -24,6 +24,11 @@ namespace Otopark_Uygulmasi.Controllers
         [HttpGet]
         public ActionResult kayit()
         {
+            kisiler k = new kisiler();
+            HttpCookie cookieKullanici = new HttpCookie("kullanici", k.kisiAd);
+            HttpContext.Response.Cookies.Add(cookieKullanici);
+
+            ViewBag.Kullanici = HttpContext.Request.Cookies["kullanici"].Value;
             return View();
         }
         [HttpPost]

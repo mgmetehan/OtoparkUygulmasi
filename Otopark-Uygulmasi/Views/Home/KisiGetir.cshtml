@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col m12">
-            <h4 class="center">APARTMAN SAKİNİ GÜNCELLE</h4>
+            <h4 class="center">KİSİ GÜNCELLE</h4>
             <p class="center light">Verilerinizi Güncelleyebilirsiniz.</p>
             <hr />
             @using (Html.BeginForm("KisiyiGuncelle", "Home", FormMethod.Post))
@@ -15,30 +15,30 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        @Html.TextBoxFor(m => m.kisiTc, new { @class = "validate" })
-                        <label for="Tc_Kimlik">Tc Kimlik</label>
+                        @Html.TextBoxFor(m => m.kisiTc, new {@placeholder= "Tc_Kimlik", @class = "validate" ,})
+                        <label for="Tc_Kimlik"></label>
                     </div>
                     <div class="input-field col s6">
-                        @Html.TextBoxFor(m => m.kisiAd, new { @class = "validate" })
-                        <label for="soyad">İsim</label>
+                        @Html.TextBoxFor(m => m.kisiAd, new { @placeholder = "İsim", @class = "validate" })
+                        <label for="soyad"></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        @Html.TextBoxFor(m => m.kisiSoyad, new { @class = "validate" })
-                        <label for="Tc_Kimlik">Soyisim</label>
+                        @Html.TextBoxFor(m => m.kisiSoyad, new { @placeholder = "Soyisim", @class = "validate" })
+                        <label for="Tc_Kimlik"></label>
                     </div>
                     <div class="input-field col s6">
-                        @Html.TextBoxFor(m => m.kisiTelNo, new { @class = "validate" })
-                        <label for="soyad">Cep Telefonu</label>
+                        @Html.TextBoxFor(m => m.kisiTelNo, new { @placeholder = "Cep Telefonu", @class = "validate" })
+                        <label for="soyad"></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
-                        @Html.TextBoxFor(m => m.Adres, new { @class = "validate" })
-                        <label for="Tc_Kimlik">Adres</label>
+                        @Html.TextBoxFor(m => m.Adres, new { @placeholder = "Adres", @class = "validate" })
+                        <label for="Tc_Kimlik"></label>
                     </div>
                 </div>
                 <div class="col center m12 s12">
