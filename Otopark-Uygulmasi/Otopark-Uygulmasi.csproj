@@ -133,6 +133,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AracController.cs" />
     <Compile Include="Controllers\CerezController.cs" />
+    <Compile Include="Controllers\DropDownController.cs" />
     <Compile Include="Controllers\DurumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -249,6 +250,7 @@
     <Content Include="Views\Cerez\OnlineUyeSayisi.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Cerez\Olustur.cshtml" />
+    <Content Include="Views\DropDown\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,15 +1,11 @@
 ﻿@model Otopark_Uygulmasi.Models.db.OtoparklarBaglanti
-@{
-    ViewBag.Title = "Otopark";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<h2>Hhhhhh</h2>
+<h2>Otoparklar Drop Down</h2>
+<h3>Çalışmıyor :(</h3>
 @using (Html.BeginForm("Create", "Home", FormMethod.Post))
 {
     <div class="container">
         <div class="from-group">
-            @Html.DropDownListFor(Model => Model.OtoparkList, Model.OtoparkList, "Otopark Seçin", new { @class = "form-control" })
+            @Html.DropDownListFor(Model => Model.otoparkId, Model.otoparkList, "Otopark Seçin", new { @class = "form-control" })
         </div>
     </div>
 }
-

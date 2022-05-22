@@ -67,10 +67,10 @@ namespace Otopark_Uygulmasi.Controllers
             return RedirectToAction("otoparkcikis");
         }
         OtoparklarBaglanti model = new OtoparklarBaglanti();
-        public ActionResult Otopark()
+         public ActionResult Otopark()
         {
-            List<otoparklar> OtoparkList = db.otoparklar.OrderBy(f => f.otoparkAd).ToList();
-            model.OtoparkList = (from u in OtoparkList
+            List<otoparklar> otoparkList = db.otoparklar.OrderBy(f => f.otoparkAd).ToList();
+            model.otoparkList = (from u in otoparkList
                                  select new SelectListItem
                                  {
                                      Text = u.otoparkAd,
