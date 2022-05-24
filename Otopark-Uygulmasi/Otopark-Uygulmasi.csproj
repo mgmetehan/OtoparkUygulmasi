@@ -238,17 +238,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\kayit.cshtml" />
-    <Content Include="Views\Home\otoparkcikis.cshtml" />
+    <Content Include="Views\Home\kisilerList.cshtml" />
     <Content Include="Views\Home\KisiGetir.cshtml" />
-    <Content Include="Views\Arac\AracCikis.cshtml" />
-    <Content Include="Views\Arac\AracGoster.cshtml" />
+    <Content Include="Views\Arac\AracBilgi.cshtml" />
+    <Content Include="Views\Arac\AracKayit.cshtml" />
     <Content Include="Views\Arac\AracGetir.cshtml" />
     <Content Include="Views\Durum\otoparkdurumu.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\UserDashBoard.cshtml" />
-    <Content Include="Views\Home\Otopark.cshtml" />
     <Content Include="Views\Cerez\OnlineUyeSayisi.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Cerez\Olustur.cshtml" />
     <Content Include="Views\DropDown\Index.cshtml" />
   </ItemGroup>

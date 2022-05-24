@@ -14,13 +14,6 @@ namespace Otopark_Uygulmasi.Controllers
         {
             return View();
         }
-        public ActionResult About()
-        {
-            ViewBag.Message = HttpContext.Application["developer"];
-            HttpContext.Application.Remove("developer");
-            return View();
-
-        }
         [HttpGet]
         public ActionResult kayit()
         {
@@ -36,9 +29,9 @@ namespace Otopark_Uygulmasi.Controllers
         {
             db.kisiler.Add(P);
             db.SaveChanges();
-            return RedirectToAction("otoparkcikis");
+            return RedirectToAction("kisilerList");
         }
-        public ActionResult otoparkcikis()
+        public ActionResult kisilerList()
         {
             var liste = db.kisiler.ToList();
             return View(liste);
@@ -47,7 +40,7 @@ namespace Otopark_Uygulmasi.Controllers
         {
             db.kisiler.Remove(db.kisiler.Find(id));
             db.SaveChanges();
-            return RedirectToAction("otoparkcikis");
+            return RedirectToAction("kisilerList");
 
         }
         public ActionResult KisiGetir(int id)
@@ -64,19 +57,7 @@ namespace Otopark_Uygulmasi.Controllers
             kisi.kisiTelNo= P1.kisiTelNo;
             kisi.Adres = P1.Adres;
             db.SaveChanges();
-            return RedirectToAction("otoparkcikis");
-        }
-        OtoparklarBaglanti model = new OtoparklarBaglanti();
-         public ActionResult Otopark()
-        {
-            List<otoparklar> otoparkList = db.otoparklar.OrderBy(f => f.otoparkAd).ToList();
-            model.otoparkList = (from u in otoparkList
-                                 select new SelectListItem
-                                 {
-                                     Text = u.otoparkAd,
-                                     Value = u.otoparkId.ToString()
-                                 }).ToList();
-            return View(model);
+            return RedirectToAction("kisilerList");
         }
     }
 }

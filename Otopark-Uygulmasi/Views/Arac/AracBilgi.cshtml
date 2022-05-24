@@ -1,6 +1,6 @@
 ﻿@model List<Otopark_Uygulmasi.Models.db.araclar>
 @{
-    ViewBag.Title = "otoparkcikis";
+    ViewBag.Title = "AracBilgi";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     var ornekgrid = new WebGrid(source: Model, canPage: true, rowsPerPage: 100);
@@ -15,7 +15,7 @@
     <h3>Toplam Kayıt Sayısı: @ViewBag.TotalRows</h3>
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
-                @using (Html.BeginForm("AracCikis", "Arac", FormMethod.Get, new { @class = "navbar-form navbar - left" }))
+                @using (Html.BeginForm("AracBilgi", "Arac", FormMethod.Get, new { @class = "navbar-form navbar - left" }))
                 {
                     <div class="form-group d-inline" style="padding-left:10px;">
                         <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="search" />

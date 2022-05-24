@@ -19,7 +19,6 @@ namespace Otopark_Uygulmasi.Controllers
         [HttpGet]
         public ActionResult otoparkdurumu()
         {
-
             var liste = db.parkYeri.ToList();
             return View(liste);
         }

@@ -1,9 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "AracGoster";
+    ViewBag.Title = "AracKayit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="container">
     <div class="section">
 
@@ -11,35 +10,33 @@
             <div class="col s12 center">
                 <h3><i class="mdi-content-send brown-text"></i></h3>
                 <h4>ARAC KAYIT</h4>
-                <p class="center light">Arac Kayıt</p>
+                <p class="center light">Aracınızı Kayıt Edin !</p>
                 <hr class="hr">
                 <div class="row">
                     <form class="col s12" method="post">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Araç Kime Ait - ID" name="kisiId" type="number" class="">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input placeholder="Araç Kime Ait - ID" name="kisiId" type="number" class="validate">
                             </div>
                             <div class="input-field col s6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input placeholder="Araç Bilgileriniz" name="arac_plaka" type="text" class="">
+                                <input placeholder="Araç Bilgileriniz" name="arac_plaka" type="text" class="validate">
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Markası" name="aracMarka" type="text" class="">
+                                <input placeholder="Markası" name="aracMarka" type="text" class="validate">
                             </div>
                             <div class="input-field col s6">
-                                <i class="material-icons prefix">people_outline</i>
-                                <input placeholder="Rengi" name="aracRenk" type="text" class="">
+                                <input placeholder="Rengi" name="aracRenk" type="text" class="validate">
                             </div>
                         </div>
                         <div class="col m12 s12">
-                            <button type="submit" class="waves-effect waves-light btn btn-small red lighten-2"><i class="material-icons left">chevron_right</i><i class="material-icons right">chevron_left</i>Aracınızı Kayıt Edin !</button>
+                            <button type="submit" class="waves-effect waves-light btn btn-small red lighten-2"><i class="material-icons left">chevron_right</i><i class="material-icons right">chevron_left</i>Araç Kaydet</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
 </div>

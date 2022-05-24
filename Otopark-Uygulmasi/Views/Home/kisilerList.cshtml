@@ -1,7 +1,7 @@
 ﻿@using Otopark_Uygulmasi.Models.db
 @model List<kisiler>
 @{
-    ViewBag.Title = "otoparkcikis";
+    ViewBag.Title = "kisilerList";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var ornekgrid = new WebGrid(source: Model, canPage: true, rowsPerPage: 2);
     ornekgrid.Pager(WebGridPagerModes.All);
@@ -61,7 +61,7 @@
             ornekgrid.Column(columnName: "kisiAd", header: "Ad"),
             ornekgrid.Column(columnName: "kisiSoyad", header: "Soyad"),
             ornekgrid.Column(columnName: "kisiTelNo", header: "Cep Telefonu"),
-            ornekgrid.Column(columnName: "Adres", header: "Albüm Numarası"),
+            ornekgrid.Column(columnName: "Adres", header: "Adres"),
             ornekgrid.Column(columnName: "", header: "",
             format:@<a href="/Home/KisiGetir/@item.kisiId" class="waves-effect waves-light btn">Güncelle</a>),
             ornekgrid.Column(columnName: "", header: "",

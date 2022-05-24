@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Linq.Dynamic.Core;
+using System.Data.Entity.Validation;
 
 namespace Otopark_Uygulmasi.Controllers
 {
@@ -17,16 +18,34 @@ namespace Otopark_Uygulmasi.Controllers
             return View();
         }
         [HttpGet]
-        public ActionResult AracGoster()
+        public ActionResult AracKayit()
         {
+            araclar a = new araclar();
+            HttpCookie cookieArac = new HttpCookie("cookieArac", a.aracMarka);
+            HttpContext.Response.Cookies.Add(cookieArac);
+
+            ViewBag.cookieArac = HttpContext.Request.Cookies["cookieArac"].Value;
             return View();
         }
         [HttpPost]
-        public ActionResult AracGoster(araclar P)
+        public ActionResult AracKayit(araclar P)
         {
             db.araclar.Add(P);
-            db.SaveChanges();
-            return RedirectToAction("AracCikis");
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    }
+                }
+            }
+            return RedirectToAction("AracBilgi");
         }
         public List<araclar> getAraclar(string search, string sort, string sortdir, out int totalRecord)
         {
@@ -46,7 +65,7 @@ namespace Otopark_Uygulmasi.Controllers
                 return v.ToList();
             }
         }
-        public ActionResult AracCikis(string sort = "AracPlaka", string sortdir = "asc",string search = "")
+        public ActionResult AracBilgi(string sort = "AracPlaka", string sortdir = "asc",string search = "")
         {
             var listee = db.araclar.ToList();
             int totalRecord = 0;
@@ -59,7 +78,7 @@ namespace Otopark_Uygulmasi.Controllers
         {
             db.araclar.Remove(db.araclar.Find(id));
             db.SaveChanges();
-            return RedirectToAction("AracCikis");
+            return RedirectToAction("AracBilgi");
 
         }
         public ActionResult AracGetir(int id)
@@ -75,7 +94,7 @@ namespace Otopark_Uygulmasi.Controllers
             kisi.aracRenk= P.aracRenk;
             kisi.kisiId= P.kisiId;
             db.SaveChanges();
-            return RedirectToAction("AracCikis");
+            return RedirectToAction("AracBilgi");
         }
     }
 }
