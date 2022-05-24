@@ -5,65 +5,110 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!DOCTYPE html>
+<html lang="en">
 
-@using (Html.BeginForm("Login", "Login", FormMethod.Post))
-{<fieldset>
+<head>
 
-        <legend>Kullanıcı Giriş Ekranı</legend>
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @if (@ViewBag.Message != null)
-        {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
-        }
-        <section class="vh-100">
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card shadow-2-strong" style="border-radius: 1rem;">
-                            <div class="card-body p-5 text-center">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-                                <h3 class="mb-5 ">Sign in</h3>
+    <title>SB Admin 2 - Login</title>
 
-                                <div class="form-outline mb-4">
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
-                                    @Html.LabelFor(a => a.kullaniciAd)
-                                    @Html.TextBoxFor(a => a.kullaniciAd)
-                                    @Html.ValidationMessageFor(a => a.kullaniciAd)
+    <!-- Custom styles for this template-->
+    <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet" />
 
-                                </div>
+</head>
 
-                                <div class="form-outline mb-4">
-                                    @Html.LabelFor(a => a.kullaniciSifre)
-                                    @Html.PasswordFor(a => a.kullaniciSifre)
-                                    @Html.ValidationMessageFor(a => a.kullaniciSifre)
-                                </div>
+<body class="bg-gradient-primary">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+    <fieldset>
+        <div class="container">
+            <legend style="color:brown">Kullanıcı Giriş Ekranı</legend>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
+                </div>
+            }
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
 
-                                <div class="form-check d-flex justify-content-start mb-4">
-                                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                                    <label class="form-check-label" for="form1Example3"> Remember password </label>
-                                </div>
-                                    <button class="btn btn-primary btn-lg justify-content-center align-items-center" type="submit">Login</button>
-                                <hr class="my-4">
-                                <div class="col-md-5 d-flex justify-content-center" style="padding-left: 400px;">
-                                    <button class="btn btn-lg btn-primary" style="background-color: #dd4b39;"
-                                            type="submit">
-                                        <i class="fab fa-google me-2"></i> Sign in with google
-                                    </button>
-                                    <button class="btn btn-lg btn-primary mb-2" style="background-color: #3b5998;"
-                                            type="submit">
-                                        <i class="fab fa-facebook-f me-2"></i>Sign in with facebook
-                                    </button>
+                <div class="col-xl-10 col-lg-12 col-md-9">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        </div>
+                                        <form class="user">
+                                            <div class="form-group">
+                                                @Html.LabelFor(a => a.kullaniciAd)
+                                                @Html.TextBoxFor(a => a.kullaniciAd)
+                                                @Html.ValidationMessageFor(a => a.kullaniciAd)
+                                            </div>
+                                            <div class="form-group">
+
+                                                @Html.LabelFor(a => a.kullaniciSifre)
+                                                @Html.PasswordFor(a => a.kullaniciSifre)
+                                                @Html.ValidationMessageFor(a => a.kullaniciSifre)
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                    <label class="custom-control-label" for="customCheck">
+                                                        Remember
+                                                        Me
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary btn-user btn-block" type="submit">Login</button>
+                                            <br />
+                                            <p>kullaniciAd: admin</p>
+                                            <p>kullaniciSifre: 1234</p>
+                                            <hr>
+                                        </form>
+                                        <hr>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
-        </section>
+
+        </div>
     </fieldset>
-}
+    }
 
+            <!-- Bootstrap core JavaScript-->
+            <script src="~/Scripts/js/jquery.min.js"></script>
+            <script src="~/Scripts/js/bootstrap.bundle.min.js"></script>
 
+            <!-- Core plugin JavaScript-->
+            <script src="~/Scripts/js/jquery.easing.min.js"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="~/Scripts/js/sb-admin-2.min.js"></script>
+
+    </body>
+
+</html>

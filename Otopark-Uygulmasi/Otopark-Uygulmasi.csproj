@@ -224,6 +224,7 @@
     <Content Include="Scripts\js\sb-admin-2.js" />
     <Content Include="Scripts\js\sb-admin-2.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Shared\login.html" />
     <Content Include="Views\Shared\blank.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -249,6 +250,7 @@
     <Content Include="Views\Cerez\OnlineUyeSayisi.cshtml" />
     <Content Include="Views\Cerez\Olustur.cshtml" />
     <Content Include="Views\DropDown\Index.cshtml" />
+    <Content Include="Views\Login\loginKayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

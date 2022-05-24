@@ -48,5 +48,14 @@ namespace Otopark_Uygulmasi.Controllers
                 return RedirectToAction("Login");
             }
         }
+        db_otoparkEntities db = new db_otoparkEntities();
+
+        [HttpPost]
+        public ActionResult loginKayit(giris g)
+        {
+            db.giris.Add(g);
+            db.SaveChanges();
+            return RedirectToAction("Login");
+        }
     }
 }
