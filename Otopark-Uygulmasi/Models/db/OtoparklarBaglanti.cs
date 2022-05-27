@@ -9,6 +9,10 @@ namespace Otopark_Uygulmasi.Models.db
     public class OtoparklarBaglanti
     {
         public int otoparkId { get; set; }
+        public int aracId { get; set; }
+
         public List<SelectListItem> otoparkList { get; set; }
+        public List<SelectListItem> aracList { get; set; }
+
     }
 }

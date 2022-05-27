@@ -23,5 +23,20 @@ namespace Otopark_Uygulmasi.Controllers
                                  }).ToList();
             return View(model);
         }
+        [HttpPost]
+        public JsonResult getAracList(int id)
+        {
+            List<araclar> aracList = db.araclar.Where(f => f.aracId == id).OrderBy(f => f.aracPlaka).ToList();
+
+            List<SelectListItem> itemlist = (from d in aracList
+                                             select new SelectListItem
+                                             {
+                                                 Text = d.aracPlaka,
+                                                 Value = d.aracId.ToString()
+                                             }).ToList();
+
+            return Json(itemlist, JsonRequestBehavior.AllowGet);
+        }
     }
+
 }

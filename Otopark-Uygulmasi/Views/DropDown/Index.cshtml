@@ -6,11 +6,37 @@
 
 <h2>Otoparklar Drop Down</h2>
 <h3>Çalışmıyor :(</h3>
-@using (Html.BeginForm("Create", "DropDown", FormMethod.Post))
-{
-    <div class="container">
-        <div class="from-group">
-            @Html.DropDownListFor(Model=> Model.otoparkId, Model.otoparkList , "Otopark Seçin", new { @class = "form-control" })
+<div class="my-16">
+    @using (Html.BeginForm("DropDown", "Index", FormMethod.Post))
+    {
+        <div class="flex flex-col mx-auto shadow-lg bg-gray-100 rounded-lg w-1/2">
+            @Html.DropDownListFor(Model => Model.otoparkId, Model.otoparkList, "Otopark Seçin", new { @class = "w-2/3 mx-auto my-5 bg-green-100 rounded-lg py-3 text-center" })
+            @Html.DropDownListFor(Model => Model.aracId, new SelectList(""), "--Ürün Seçin--", new { @class = " w-2/3 mx-auto my-5 bg-green-100 rounded-lg py-3 text-center" })
         </div>
-    </div>
+    }
+</div>
+@section scripts
+{
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#otoparkId").change(function () {
+                var id = $(this).val();
+                var ÜrünList = document.getElementsByName("aracId");
+                $.ajax({
+                    url: '/Login/getAracList',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { 'id': id },
+                    success: function (data) {
+                        $(ÜrünList).children().remove();
+                        for (let i = 0; i < data.length; i++) {
+                            $(ÜrünList).append('<option value=' + data[i].Value + '>' + data[i].Text + '</option>');
+                            console.log(data[i].Text);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 }
